@@ -1,0 +1,24 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PagePrincipale.master.cs" Inherits="Boutissante_Issam_TDI201_B_TR1__V2.PagePrincipale" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+            <asp:LinkButton runat="server" PostBackUrl="~/PageInscription.aspx" CausesValidation="False">Inscription</asp:LinkButton>
+            <asp:LinkButton runat="server" PostBackUrl="~/PageConnection.aspx" CausesValidation="False">Connection</asp:LinkButton>
+            <asp:LinkButton runat="server" PostBackUrl="~/ListeStages.aspx" CausesValidation="False">ListeStages</asp:LinkButton>
+        </header>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
