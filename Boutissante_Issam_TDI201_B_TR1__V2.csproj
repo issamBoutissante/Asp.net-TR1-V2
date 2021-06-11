@@ -67,13 +67,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GetListDemmandeInscriptionWebService.asmx" />
     <Content Include="Web.config" />
     <Content Include="PageInscription.aspx" />
     <Content Include="PageConnection.aspx" />
     <Content Include="ListeStages.aspx" />
+    <Content Include="ConsomerWebService.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database.cs" />
+    <Compile Include="GetListDemmandeInscriptionWebService.asmx.cs">
+      <DependentUpon>GetListDemmandeInscriptionWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PagePrincipale.Master.cs">
       <DependentUpon>PagePrincipale.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -104,6 +110,13 @@
       <DependentUpon>ListeStages.aspx</DependentUpon>
     </Compile>
     <Compile Include="Volontaire.cs" />
+    <Compile Include="ConsomerWebService.aspx.cs">
+      <DependentUpon>ConsomerWebService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsomerWebService.aspx.designer.cs">
+      <DependentUpon>ConsomerWebService.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

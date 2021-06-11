@@ -7,13 +7,55 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style>
+        body{
+            padding:0;
+            margin:0;
+        }
+        header{
+            background-color:rgba(0, 153, 255, 0.863);
+            padding:10px;
+            margin-bottom:20px;
+        }
+        header .item{
+            margin-left:20px;
+            text-decoration-style:none;
+            color:white;
+        }
+        .btn{
+            background-color:rgba(0, 153, 255, 0.863);
+            color:white;
+            border:none;
+            outline:none;
+            padding:5px;
+            border-radius:5px;
+            transition:.5s;
+            padding:10px;
+        }
+        .btn:hover{
+            background-color:rgba(0, 89, 255, 0.863);
+        }
+        .text{
+            outline:none;
+            padding:5px;
+            border-radius:3px;
+            border:1px solid gray;
+        }
+        table{
+            margin-right:10px;
+        }
+        td{
+            padding:10px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <header>
-            <asp:LinkButton runat="server" PostBackUrl="~/PageInscription.aspx" CausesValidation="False">Inscription</asp:LinkButton>
-            <asp:LinkButton runat="server" PostBackUrl="~/PageConnection.aspx" CausesValidation="False">Connection</asp:LinkButton>
-            <asp:LinkButton runat="server" PostBackUrl="~/ListeStages.aspx" CausesValidation="False">ListeStages</asp:LinkButton>
+            <asp:LinkButton CssClass="item" runat="server" PostBackUrl="~/PageInscription.aspx" CausesValidation="False">Inscription</asp:LinkButton>
+            <asp:LinkButton CssClass="item" runat="server" PostBackUrl="~/PageConnection.aspx" CausesValidation="False">Connection</asp:LinkButton>
+            <asp:LinkButton CssClass="item" runat="server" PostBackUrl="~/ListeStages.aspx" CausesValidation="False">ListeStages</asp:LinkButton>
+            <asp:LinkButton CssClass="item" runat="server" PostBackUrl="~/ConsomerWebService.aspx" CausesValidation="False">Consommer web service</asp:LinkButton>
         </header>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

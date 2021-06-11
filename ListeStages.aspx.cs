@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Web.UI.WebControls;
 
 namespace Boutissante_Issam_TDI201_B_TR1__V2
@@ -9,20 +10,16 @@ namespace Boutissante_Issam_TDI201_B_TR1__V2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["isAuthentifie"] == null)
-            //{
-            //    Response.Redirect("~/PageConnection.aspx");
-            //}
             if (!IsPostBack)
             {
+                if (Session["isAuthentifie"] == null)
+                {
+                    Response.Redirect("~/PageConnection.aspx");
+                }
                 Volontaire v = Session["infoVolontaire"] as Volontaire;
                 VolontaireInfo.Text = "Connection Id : " + v.id + " " + v.nom + " " + v.prenom;
+
             }
-        }
-
-        protected void Unnamed_Click(object sender, EventArgs e)
-        {
-
         }
         protected void Update_Grid()
         {
@@ -42,13 +39,12 @@ namespace Boutissante_Issam_TDI201_B_TR1__V2
                 }.Fill(table);
                 StagesGridView.DataSource = table;
                 StagesGridView.DataBind();
-                //VolontaireInfo.Text = dataSet.Tables["stages"].Rows.Count.ToString();
             });
         }
         protected void Assocations_SelectedIndexChanged(object sender, EventArgs e)
         {
             Update_Grid();
-            NomAssociation.Text = "Liste des stages relatifs a l'association : " + Assocations.SelectedValue.ToString(); 
+            NomAssociation.Text = "Liste des stages relatifs a l'association : " + Assocations.SelectedItem.ToString();
         }
 
         protected void Selectionner_Click(object sender, EventArgs e)
@@ -74,15 +70,32 @@ namespace Boutissante_Issam_TDI201_B_TR1__V2
 
         protected void Sinscrire_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(Id_Stage.Text))
+            {
+                Message.ForeColor = Color.Red;
+                Message.Text = "Selection un stage";
+                return;
+            }
             Database.Execute(Connection =>
             {
-                new SqlCommand("insert into Demande_Inscription values(@dateDemande,@idVlt,#IdStage,'En attente')", Connection)
+                Volontaire volontaire = Session["infoVolontaire"] as Volontaire;
+                new SqlCommand("insert into Demande_Inscription values(@dateDemande,@idVlt,@IdStage,'En attente')", Connection)
                 {
                     Parameters =
                     {
-                        new SqlParameter()
+                        new SqlParameter("@dateDemande",DateTime.Now.Date.ToShortDateString()),
+                        new SqlParameter("@idVlt",volontaire.id),
+                        new SqlParameter("@IdStage",Id_Stage.Text),
                     }
-                }
+                }.ExecuteNonQuery();
+            }, () =>
+            {
+                Message.ForeColor = Color.Green;
+                Message.Text = "Inscription a ete effectue";
+            }, Error =>
+            {
+                Message.ForeColor = Color.Red;
+                Message.Text = Error;
             });
         }
     }

@@ -11,44 +11,35 @@ namespace Boutissante_Issam_TDI201_B_TR1__V2
 {
 
 
-    public partial class WebForm2
+    public partial class WebForm4
     {
 
         /// <summary>
-        /// Mail control.
+        /// Id_Volontaire control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Mail;
+        protected global::System.Web.UI.WebControls.TextBox Id_Volontaire;
 
         /// <summary>
-        /// RegularExpressionValidator2 control.
+        /// Afficher control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        protected global::System.Web.UI.WebControls.Button Afficher;
 
         /// <summary>
-        /// MotPass control.
+        /// DemandeInscriptionGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MotPass;
-
-        /// <summary>
-        /// Connection control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Connection;
+        protected global::System.Web.UI.WebControls.GridView DemandeInscriptionGridView;
 
         /// <summary>
         /// Message control.

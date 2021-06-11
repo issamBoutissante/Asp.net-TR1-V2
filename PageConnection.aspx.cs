@@ -34,7 +34,7 @@ namespace Boutissante_Issam_TDI201_B_TR1__V2
                 {
                     Session["nombreEssaie"] = 0;
                     Session["isAuthentifie"] = true;
-                    SqlDataReader reader = new SqlCommand("select actif from Volontaire where Mail=@mail and Mot_Passe=@motPass;", Connection)
+                    SqlDataReader reader = new SqlCommand("select * from Volontaire where Mail=@mail and Mot_Passe=@motPass;", Connection)
                     {
                         Parameters =
                         {
@@ -50,8 +50,8 @@ namespace Boutissante_Issam_TDI201_B_TR1__V2
                         nom=reader["nom_Vlt"].ToString(),
                         prenom=reader["prenom_Vlt"].ToString()
                     };
-                    Response.Redirect("~/ListeStages.aspx");
                     reader.Close();
+                    Response.Redirect("~/ListeStages.aspx");
                 }
                 else if (nombre == false)
                 {
